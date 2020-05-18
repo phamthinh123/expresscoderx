@@ -1,0 +1,22 @@
+extends ../layouts/common
+block content
+  h1 TRANSACTION
+    h3 LIST
+
+      table.table-bordered.table-hover.w-100
+        thead
+          tr.table-info
+            th.w-25 userId
+            th.w-25 bookId
+            th.w-25 status
+            th.w-25 complete
+        tbody  
+          each transaction in transactions
+            tr
+              td= transaction.userId
+              td= transaction.bookId
+              td= transaction.isComplete
+              td
+                a(href="/transactions/"+transaction.id+"/complete") Hoàn thành         
+      a(href="/transactions/create") Create
+block content1  

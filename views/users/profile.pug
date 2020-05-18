@@ -1,0 +1,21 @@
+extends ../layouts/common
+block content
+  h1 UPDATE
+  form(action="/users/:id/profile",method="POST",enctype="multipart/form-data")
+    input(type="hidden",name="id",value=id)
+    label(for="name") New Name
+    input(type="text",name="name",id="name" required)
+    br
+    label(for="phone") New Phone
+    input(type="text",name="phone",id="phone" required)
+    br
+    label Current Avatar
+    br
+    img(src= user.avatar,width="256")
+    br
+    label(for="newAvatar") New Avatar:
+    input(type="file",name="newAvatar",id="newAvatar" required)
+    br
+    
+    button Submit
+block content1 

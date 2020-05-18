@@ -1,0 +1,29 @@
+extends ../layouts/common
+block content
+  h1 BOOKS
+    h3 LIST
+  
+
+      .row
+        each book in books
+          .col-12.col-md-6
+            .card
+              .card-body
+                h2.card-title= book.title
+                p.card-text= book.description
+                a.btn.btn-info.mr-3.mb-3(href="/books/"+book.id+"/update") Update
+                a.btn.btn-info.mb-3(href="/books/"+book.id+"/delete") Delete
+                br
+                a.btn.btn-primary(href="/cart/add/"+book.id) Add To Cart
+                
+                
+    h3 CREATE
+      form(action="/books/create",method="POST")
+        label(for="title") Title
+        input(type="text",name="title",id="title")
+        br
+        label(for="description") Description
+        input(type="text",name="description",id="description")
+        br
+        button Create
+block content1  

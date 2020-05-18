@@ -1,0 +1,44 @@
+extends ../layouts/common
+block content
+  h1 USERS
+    h3 LIST
+
+           
+      table.table-bordered.table-hover.w-100
+        thead
+          tr.table-info
+            th.w-20 Name
+            th.w-20 Phone
+            th.w-20 Avatar
+            th.w-20 Update
+            th.w-20 Delete
+        tbody  
+          each user in users  
+            tr
+              td= user.name
+              td= user.phone
+              td
+                img(src= user.avatar,height="100")
+              td
+                a(href="/users/"+user.id+"/profile") Update
+              td
+                a(href="/users/"+user.id+"/delete") Delete
+    h3 CREATE
+      if errors
+        each error in errors
+          .alert.alert-danger= error
+      form(action="/users/create",method="POST",enctype="multipart/form-data")
+        label(for="name") Name
+        input(type="text",name="name",id="name",value=values ? values.name : "" required)
+        br
+        label(for="phone") Phone
+        input(type="text",name="phone",id="phone",value=values ? values.phone : "" required)
+        br
+        label(for="email") Email
+        input(type="email",name="email",id="email",value=values ? values.email : "" required)
+        br
+        label(for="avatar") Avatar
+        input(type="file",name="avatar",id="avatar")
+        br
+        button Create
+block content1        

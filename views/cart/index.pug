@@ -1,0 +1,12 @@
+extends ../layouts/common
+block content
+  if user
+    h1= user.name
+      ul
+        if cart
+          each val, key in cart.items
+            li= key + ': ' + val.qty + " quyển"
+        form(action="/transactions/rent",method="POST")    
+          button Thuê Sách
+  
+        

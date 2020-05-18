@@ -1,0 +1,9 @@
+extends ../layouts/common
+block content
+  h1 UPDATE
+  form(action="/books/:id/update",method="POST")
+    input(type="hidden",name="id",value=id)
+    label(for="title") New Title
+    input(type="text",name="title",id="title")
+    button Submit
+block content1  

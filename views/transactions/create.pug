@@ -1,0 +1,16 @@
+extends ../layouts/common
+block content
+  h3 CREATE
+  form(action="/transactions/create",method="POST")
+    label(for="userId") Users
+    select(name="userId",id="userId")
+      each user in users
+        option= user.id
+    br   
+    label(for="bookId") Books
+    select(name="bookId",id="bookId")
+      each book in books
+        option= book.id
+    br
+    button Create
+block content1  

@@ -1,0 +1,15 @@
+extends ../layouts/common
+block content  
+    h3 LOGIN
+      if errors
+        each error in errors
+          .alert.alert-danger= error
+      form(action="/auth/login",method="POST")
+        label(for="email") Email
+        input(type="email",name="email",id="email",value=values ? values.email : "")
+        br
+        label(for="password") Password
+        input(type="password",name="password",id="password",value=values ? values.password : "")
+        br
+        button Login
+block content1        
